@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/wojtek/BioInf/Define.h">
+			<Option target="BioInf"/>
+		</Unit>
 		<Unit filename="/home/wojtek/BioInf/main.cpp">
 			<Option target="BioInf"/>
 		</Unit>

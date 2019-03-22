@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
+/home/wojtek/BioInf/Define.h
+
 /home/wojtek/BioInf/main.cpp
 iostream
 -
+string
+-
+filesystem
+-
+thread
+-
+Define.h
+/home/wojtek/BioInf/Define.h
 
