@@ -1,1 +1,1 @@
-/usr/bin/c++   -Wall -pthread -g   CMakeFiles/BioInf.dir/main.cpp.o  -o BioInf -lstdc++fs 
+/usr/bin/c++   -Wall -pthread -g   CMakeFiles/BioInf.dir/main.cpp.o CMakeFiles/BioInf.dir/solver.cpp.o CMakeFiles/BioInf.dir/Element.cpp.o  -o BioInf -lstdc++fs 

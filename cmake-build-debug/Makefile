@@ -123,6 +123,33 @@ BioInf/fast:
 	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/build
 .PHONY : BioInf/fast
 
+Element.o: Element.cpp.o
+
+.PHONY : Element.o
+
+# target to build an object file
+Element.cpp.o:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/Element.cpp.o
+.PHONY : Element.cpp.o
+
+Element.i: Element.cpp.i
+
+.PHONY : Element.i
+
+# target to preprocess a source file
+Element.cpp.i:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/Element.cpp.i
+.PHONY : Element.cpp.i
+
+Element.s: Element.cpp.s
+
+.PHONY : Element.s
+
+# target to generate assembly for a file
+Element.cpp.s:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/Element.cpp.s
+.PHONY : Element.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -150,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+solver.o: solver.cpp.o
+
+.PHONY : solver.o
+
+# target to build an object file
+solver.cpp.o:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/solver.cpp.o
+.PHONY : solver.cpp.o
+
+solver.i: solver.cpp.i
+
+.PHONY : solver.i
+
+# target to preprocess a source file
+solver.cpp.i:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/solver.cpp.i
+.PHONY : solver.cpp.i
+
+solver.s: solver.cpp.s
+
+.PHONY : solver.s
+
+# target to generate assembly for a file
+solver.cpp.s:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/solver.cpp.s
+.PHONY : solver.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... BioInf"
 	@echo "... edit_cache"
+	@echo "... Element.o"
+	@echo "... Element.i"
+	@echo "... Element.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... solver.o"
+	@echo "... solver.i"
+	@echo "... solver.s"
 .PHONY : help
 
 

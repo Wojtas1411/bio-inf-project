@@ -80,10 +80,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/wojtek/BioInf/AbstractGraphBuildStrategy.h">
+			<Option target="BioInf"/>
+		</Unit>
+		<Unit filename="/home/wojtek/BioInf/AbstractGraphGoThroughStrategy.h">
+			<Option target="BioInf"/>
+		</Unit>
 		<Unit filename="/home/wojtek/BioInf/Define.h">
 			<Option target="BioInf"/>
 		</Unit>
+		<Unit filename="/home/wojtek/BioInf/Element.cpp">
+			<Option target="BioInf"/>
+		</Unit>
+		<Unit filename="/home/wojtek/BioInf/Element.h">
+			<Option target="BioInf"/>
+		</Unit>
 		<Unit filename="/home/wojtek/BioInf/main.cpp">
+			<Option target="BioInf"/>
+		</Unit>
+		<Unit filename="/home/wojtek/BioInf/solver.cpp">
+			<Option target="BioInf"/>
+		</Unit>
+		<Unit filename="/home/wojtek/BioInf/solver.h">
 			<Option target="BioInf"/>
 		</Unit>
 		<Unit filename="/home/wojtek/BioInf/CMakeLists.txt">

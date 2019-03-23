@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/wojtek/BioInf/Element.cpp" "/home/wojtek/BioInf/cmake-build-debug/CMakeFiles/BioInf.dir/Element.cpp.o"
   "/home/wojtek/BioInf/main.cpp" "/home/wojtek/BioInf/cmake-build-debug/CMakeFiles/BioInf.dir/main.cpp.o"
+  "/home/wojtek/BioInf/solver.cpp" "/home/wojtek/BioInf/cmake-build-debug/CMakeFiles/BioInf.dir/solver.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
