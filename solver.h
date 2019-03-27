@@ -12,7 +12,7 @@
 
 class solver {
 private:
-    std::vector<std::string> *instance;
+    std::vector<Element> *instance;
     int id;                 //identifier
     int error_type;         //positive/negative
     std::string filename;   //name of file

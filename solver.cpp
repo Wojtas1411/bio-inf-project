@@ -15,6 +15,7 @@ std::string solver::getResult() {
 
 void solver::solve() {
     //TODO use strategies to solve the graph
+    int L = 9;
 }
 
 solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy) {
@@ -23,7 +24,7 @@ solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBu
     this->buildStrategy = graphBuildStrategy;
     this->goThroughStrategy = goThroughStrategy;
 
-    this->instance = new std::vector<std::string>();
+    this->instance = new std::vector<Element>();
 
     //TODO read instance and prepare everything
 }

@@ -12,8 +12,19 @@
  */
 
 class AbstractGraphBuildStrategy{
+protected:
+    std::queue<int> priorityQueue = std::queue<int>();
+    int numOfEdges = 0;
 public:
     virtual std::vector<std::vector<int>> getListOfNeighbours(std::vector<Element> * elements)=0;
+
+    std::queue<int> getPriorityQueue(){
+        return priorityQueue;
+    }
+
+    int getNumOfEdges(){
+        return numOfEdges;
+    }
 };
 
 #endif //BIOINF_ABSTRACTGRAPHBUILDSTRATEGY_H
