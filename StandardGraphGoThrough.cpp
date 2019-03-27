@@ -5,6 +5,7 @@
 #include "StandardGraphGoThrough.h"
 
 std::vector<Element> StandardGraphGoThrough::goThrough(std::vector<Element> *element,
-                                                       std::vector<std::vector<int>> *neighbourList) {
+                                                       std::vector<std::vector<int>> *neighbourList,
+                                                       std::queue<int> *priorityQueue) {
     //TODO go through
 }

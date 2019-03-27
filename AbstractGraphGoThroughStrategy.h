@@ -13,7 +13,7 @@
 
 class AbstractGraphGoThroughStrategy{
 public:
-    virtual std::vector<Element> goThrough(std::vector<Element> *element, std::vector<std::vector<int>> *neighbourList)=0;
+    virtual std::vector<Element> goThrough(std::vector<Element> *element, std::vector<std::vector<int>> *neighbourList, std::queue<int> *priorityQueue)=0;
 };
 
 #endif //BIOINF_ABSTRACTGRAPHGOTHROUGHSTRATEGY_H

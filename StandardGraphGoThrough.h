@@ -10,7 +10,7 @@
 
 class StandardGraphGoThrough : public AbstractGraphGoThroughStrategy{
 public:
-    std::vector<Element> goThrough(std::vector<Element> *element, std::vector<std::vector<int>> *neighbourList);
+    std::vector<Element> goThrough(std::vector<Element> *element, std::vector<std::vector<int>> *neighbourList, std::queue<int> *priorityQueue);
 };
 
 
