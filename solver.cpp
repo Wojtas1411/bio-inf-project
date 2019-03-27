@@ -9,13 +9,27 @@ std::string solver::delimiter = ";";
 std::string solver::header_line = "id" + solver::delimiter + "\n";
 
 std::string solver::getResult() {
-    //TODO
+    //TODO build csv string with output data
     return this->filename;
 }
 
 void solver::solve() {
-    //TODO use strategies to solve the graph
     int li = solver::L -1;
+
+    //start timer
+    auto start = std::chrono::system_clock::now();
+
+    //TODO use strategies to solve the graph
+
+    //end timer
+    auto end = std::chrono::system_clock::now();
+    //save time
+    this->time = (double) std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()/1000;
+
+    //TODO fill chain size
+    this->chain_size = 0;
+    //TODO fill used elements
+    this->used_elements = 0;
 }
 
 solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy) {

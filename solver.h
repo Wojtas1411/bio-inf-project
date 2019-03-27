@@ -17,12 +17,15 @@ private:
     int error_type;         //positive/negative
     std::string filename;   //name of file
     double time;            //time of execution
-    unsigned long number_of_elements_real; //total number of elements in instance (at read)
-    unsigned long number_of_elements; //size of instance (from filename)
+    unsigned long number_of_elements_real;  //total number of elements in instance (at read)
+    unsigned long number_of_elements;       //size of instance (from filename)
     long error_size;         //size of error (from filename)
     long required_size;      //required size of chain
     AbstractGraphBuildStrategy *buildStrategy;
     AbstractGraphGoThroughStrategy *goThroughStrategy;
+
+    long chain_size;        //total length of chain
+    long used_elements;     //number of used input elements
 
 public:
     solver(int id, const char * filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy);
