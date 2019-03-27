@@ -22,6 +22,7 @@ protected:
 
 public:
     explicit SimpleElement(std::string s);  //every single part in this element
+    ~SimpleElement()  = default;
 
     int appendSize(SimpleElement se);       //get size of common part of nucleotides between this tail and next head
     std::string getTail(unsigned int p);
@@ -29,7 +30,7 @@ public:
 
     std::string getValue();
     int getSize();
-    virtual std::vector<SimpleElement>* getParts();
+    virtual std::vector<SimpleElement> getParts();
 };
 
 /*
@@ -38,7 +39,7 @@ public:
 
 class Element : SimpleElement {
 protected:
-    std::vector<SimpleElement> *parts;          //actual parts
+    std::vector<SimpleElement> parts;          //actual parts
 
 public:
     explicit Element(std::string s);
@@ -46,7 +47,7 @@ public:
 
     bool appendElement(Element e, unsigned int p); //append element on given size of common part,
 
-    std::vector<SimpleElement>* getParts();
+    std::vector<SimpleElement> getParts();
 
 };
 

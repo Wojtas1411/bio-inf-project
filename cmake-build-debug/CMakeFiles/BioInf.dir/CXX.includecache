@@ -27,26 +27,14 @@ iostream
 -
 fstream
 -
+queue
+-
 Element.h
 /home/wojtek/BioInf/Element.h
 
 /home/wojtek/BioInf/Element.h
 Define.h
 /home/wojtek/BioInf/Define.h
-
-/home/wojtek/BioInf/main.cpp
-iostream
--
-filesystem
--
-thread
--
-future
--
-Define.h
-/home/wojtek/BioInf/Define.h
-solver.h
-/home/wojtek/BioInf/solver.h
 
 /home/wojtek/BioInf/solver.cpp
 solver.h

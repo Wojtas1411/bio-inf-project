@@ -17,10 +17,10 @@ private:
     int error_type;         //positive/negative
     std::string filename;   //name of file
     double time;            //time of execution
-    int number_of_elements_real; //total number of elements in instance (at read)
-    int number_of_elements; //size of instance (from filename)
-    int error_size;         //size of error (from filename)
-    int required_size;      //required size of chain
+    unsigned long number_of_elements_real; //total number of elements in instance (at read)
+    unsigned long number_of_elements; //size of instance (from filename)
+    long error_size;         //size of error (from filename)
+    long required_size;      //required size of chain
     AbstractGraphBuildStrategy *buildStrategy;
     AbstractGraphGoThroughStrategy *goThroughStrategy;
 
@@ -37,6 +37,7 @@ public:
 
     static const int NEGATIVE_ERROR = 0;
     static const int POSITIVE_ERROR = 1;
+    static const int UNDEFINED_ERROR = -1;
 
     static const int L = 10;
 };

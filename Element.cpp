@@ -5,17 +5,17 @@
 #include "Element.h"
 
 Element::Element(std::string s) : SimpleElement(s) {
-    this->parts = new std::vector<SimpleElement>();
-    this->parts->emplace_back(SimpleElement(s));
+    this->parts = std::vector<SimpleElement>();
+    this->parts.emplace_back(SimpleElement(s));
 }
 
 Element::~Element() {
-    this->parts->clear();
-    this->parts->shrink_to_fit();
-    delete this->parts;
+    this->parts.clear();
+    this->parts.shrink_to_fit();
+    //delete this->parts;
 }
 
-std::vector<SimpleElement>* Element::getParts() {
+std::vector<SimpleElement> Element::getParts() {
     return this->parts;
 }
 
@@ -26,7 +26,7 @@ bool Element::appendElement(Element e, unsigned int p) {
     if(s1 == s2){
         this->value += e.getTail((int)e.getValue().size()-p);
         this->size += e.getSize();
-        this->parts->insert(this->parts->end(), e.getParts()->begin(), e.getParts()->end());
+        this->parts.insert(this->parts.end(), e.getParts().begin(), e.getParts().end());
         return true;
     } else {
         return false;
@@ -47,8 +47,8 @@ int SimpleElement::getSize() {
     return this->size;
 }
 
-std::vector<SimpleElement>* SimpleElement::getParts() {
-    return nullptr;
+std::vector<SimpleElement> SimpleElement::getParts() {
+    return std::vector<SimpleElement>(); //return simple vector
 }
 
 std::string SimpleElement::getHead(unsigned int p) {
