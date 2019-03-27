@@ -95,6 +95,18 @@
 		<Unit filename="/home/wojtek/BioInf/Element.h">
 			<Option target="BioInf"/>
 		</Unit>
+		<Unit filename="/home/wojtek/BioInf/StandardGraphBuild.cpp">
+			<Option target="BioInf"/>
+		</Unit>
+		<Unit filename="/home/wojtek/BioInf/StandardGraphBuild.h">
+			<Option target="BioInf"/>
+		</Unit>
+		<Unit filename="/home/wojtek/BioInf/StandardGraphGoThrough.cpp">
+			<Option target="BioInf"/>
+		</Unit>
+		<Unit filename="/home/wojtek/BioInf/StandardGraphGoThrough.h">
+			<Option target="BioInf"/>
+		</Unit>
 		<Unit filename="/home/wojtek/BioInf/main.cpp">
 			<Option target="BioInf"/>
 		</Unit>

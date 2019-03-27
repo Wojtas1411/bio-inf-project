@@ -150,6 +150,60 @@ Element.cpp.s:
 	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/Element.cpp.s
 .PHONY : Element.cpp.s
 
+StandardGraphBuild.o: StandardGraphBuild.cpp.o
+
+.PHONY : StandardGraphBuild.o
+
+# target to build an object file
+StandardGraphBuild.cpp.o:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o
+.PHONY : StandardGraphBuild.cpp.o
+
+StandardGraphBuild.i: StandardGraphBuild.cpp.i
+
+.PHONY : StandardGraphBuild.i
+
+# target to preprocess a source file
+StandardGraphBuild.cpp.i:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.i
+.PHONY : StandardGraphBuild.cpp.i
+
+StandardGraphBuild.s: StandardGraphBuild.cpp.s
+
+.PHONY : StandardGraphBuild.s
+
+# target to generate assembly for a file
+StandardGraphBuild.cpp.s:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.s
+.PHONY : StandardGraphBuild.cpp.s
+
+StandardGraphGoThrough.o: StandardGraphGoThrough.cpp.o
+
+.PHONY : StandardGraphGoThrough.o
+
+# target to build an object file
+StandardGraphGoThrough.cpp.o:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o
+.PHONY : StandardGraphGoThrough.cpp.o
+
+StandardGraphGoThrough.i: StandardGraphGoThrough.cpp.i
+
+.PHONY : StandardGraphGoThrough.i
+
+# target to preprocess a source file
+StandardGraphGoThrough.cpp.i:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.i
+.PHONY : StandardGraphGoThrough.cpp.i
+
+StandardGraphGoThrough.s: StandardGraphGoThrough.cpp.s
+
+.PHONY : StandardGraphGoThrough.s
+
+# target to generate assembly for a file
+StandardGraphGoThrough.cpp.s:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.s
+.PHONY : StandardGraphGoThrough.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -216,6 +270,12 @@ help:
 	@echo "... Element.o"
 	@echo "... Element.i"
 	@echo "... Element.s"
+	@echo "... StandardGraphBuild.o"
+	@echo "... StandardGraphBuild.i"
+	@echo "... StandardGraphBuild.s"
+	@echo "... StandardGraphGoThrough.o"
+	@echo "... StandardGraphGoThrough.i"
+	@echo "... StandardGraphGoThrough.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

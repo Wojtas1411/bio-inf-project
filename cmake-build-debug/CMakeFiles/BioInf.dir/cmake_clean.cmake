@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/BioInf.dir/main.cpp.o"
   "CMakeFiles/BioInf.dir/solver.cpp.o"
   "CMakeFiles/BioInf.dir/Element.cpp.o"
+  "CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o"
+  "CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o"
   "BioInf.pdb"
   "BioInf"
 )
