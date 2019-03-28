@@ -5,13 +5,16 @@
 
 #include "Define.h"
 #include "solver.h"
+#include "HashGraphBuild.h"
+#include "StandardGraphBuild.h"
+#include "StandardGraphGoThrough.h"
 
 //g++ -std=c++17 -Wall main.cpp -o ./cmake-build-debug/test -lstdc++fs --compile with gcc :)))
 
 void solve(const char * filename, std::promise<std::string> *promise, int id){
 
     //TODO choose strategies
-    auto *tsolver = new solver(id, filename, nullptr, nullptr);
+    auto *tsolver = new solver(id, filename, new HashGraphBuild(), nullptr);
     tsolver->solve();
     promise->set_value(tsolver->getResult());
 

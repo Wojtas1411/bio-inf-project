@@ -19,8 +19,10 @@
 #include <iostream>
 #include <fstream>
 #include <queue>
+#include <unordered_map>
 
 #include "Element.h"
+
 
 
 #endif //BIOINF_DEFINE_H

@@ -37,7 +37,7 @@ public:
  * this class represents single, complex chain of nucleotides and it's parts
  */
 
-class Element : SimpleElement {
+class Element : public SimpleElement {
 protected:
     std::vector<SimpleElement> parts;          //actual parts
 
