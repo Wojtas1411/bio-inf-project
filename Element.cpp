@@ -15,8 +15,8 @@ Element::~Element() {
     //delete this->parts;
 }
 
-std::vector<SimpleElement> Element::getParts() {
-    return this->parts;
+std::vector<SimpleElement> * Element::getParts() {
+    return &this->parts;
 }
 
 bool Element::appendElement(Element e, unsigned int p) {
@@ -26,7 +26,8 @@ bool Element::appendElement(Element e, unsigned int p) {
     if(s1 == s2){
         this->value += e.getTail((int)e.getValue().size()-p);
         this->size += e.getSize();
-        this->parts.insert(this->parts.end(), e.getParts().begin(), e.getParts().end());
+        this->parts.insert(this->parts.end(), e.getParts()->begin(), e.getParts()->end());
+        //std::cout<<"connection"<<std::endl;
         return true;
     } else {
         return false;
@@ -47,8 +48,9 @@ int SimpleElement::getSize() {
     return this->size;
 }
 
-std::vector<SimpleElement> SimpleElement::getParts() {
-    return std::vector<SimpleElement>(); //return simple vector
+std::vector<SimpleElement> * SimpleElement::getParts() {
+    //return std::vector<SimpleElement>(); //return simple vector
+    return nullptr;
 }
 
 std::string SimpleElement::getHead(unsigned int p) {

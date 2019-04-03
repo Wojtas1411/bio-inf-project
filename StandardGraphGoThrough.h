@@ -9,8 +9,10 @@
 #include "AbstractGraphGoThroughStrategy.h"
 
 class StandardGraphGoThrough : public AbstractGraphGoThroughStrategy{
+protected:
+    Element onePathTrip(int start_index, bool* visited, std::vector<std::vector<int>> &neighbourList, std::vector<Element> &elements);
 public:
-    std::vector<Element> goThrough(std::vector<Element> *element, std::vector<std::vector<int>> *neighbourList, std::queue<int> *priorityQueue);
+    std::vector<Element> goThrough(std::vector<Element> &element, std::vector<std::vector<int>> &neighbourList, std::queue<int> *priorityQueue);
 };
 
 

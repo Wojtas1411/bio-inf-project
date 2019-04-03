@@ -10,9 +10,9 @@
 
 class HashGraphBuild : public AbstractGraphBuildStrategy{
 protected:
-    void generatePriorityQueue(std::vector<Element> * elements);
+    void generatePriorityQueue(std::vector<Element> & elements);
 public:
-    std::vector<std::vector<int>> getListOfNeighbours(std::vector<Element> * elements);
+    std::vector<std::vector<int>> * getListOfNeighbours(std::vector<Element> & elements);
 
 };
 

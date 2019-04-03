@@ -16,20 +16,41 @@ std::string solver::getResult() {
 void solver::solve() {
     int li = solver::L -1;
 
+    std::vector<Element> result = this->instance;
+
+    std::cout<<"Start"<<std::endl;
+
     //start timer
     auto start = std::chrono::system_clock::now();
 
-    //TODO use strategies to solve the graph
+    while(li > 0){
+        this->buildStrategy->setLi(li);
+        this->goThroughStrategy->setLi(li);
+        std::cout<<this->filename + "\t"<<li<<std::endl;
+
+        std::vector<std::vector<int>> * graph = buildStrategy->getListOfNeighbours(result);
+        std::cout<<"Number of edges:\t"<<this->buildStrategy->getNumOfEdges()<<std::endl;
+        if(this->buildStrategy->getNumOfEdges() == 0){
+            li--;
+        }
+
+        std::cout<<"Graph size:\t " << graph->size()<<std::endl;
+        if(graph->size() == 1){
+            break;
+        }
+
+        result = goThroughStrategy->goThrough(result, *graph, buildStrategy->getPriorityQueue());
+    }
 
     //end timer
     auto end = std::chrono::system_clock::now();
     //save time
     this->time = (double) std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()/1000;
 
-    //TODO fill chain size
-    this->chain_size = 0;
-    //TODO fill used elements
-    this->used_elements = 0;
+    //fill chain size
+    this->chain_size = result[0].getValue().size();
+    //fill used elements
+    this->used_elements = result[0].getSize();
 }
 
 solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy) {
@@ -38,7 +59,11 @@ solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBu
     this->buildStrategy = graphBuildStrategy;
     this->goThroughStrategy = goThroughStrategy;
 
-    this->instance = new std::vector<Element>();
+    this->instance =  std::vector<Element>();
+
+    this->time = -1.0;
+    this->chain_size = 0;
+    this->used_elements = 0;
 
     std::ifstream in;
     in.open(filename);
@@ -46,15 +71,14 @@ solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBu
     while(!in.eof()){
         std::string temp;
         in >> temp;
-
-        this->instance->emplace_back(Element(temp));
+        if(!temp.empty()) this->instance.emplace_back(Element(temp));
     }
 
     in.close();
 
     this->filename = this->filename.substr(13);
 
-    number_of_elements_real = this->instance->size();
+    number_of_elements_real = this->instance.size();
 
     //
     //---parsing filename
@@ -88,9 +112,9 @@ solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBu
 
 solver::~solver() {
     //TODO destroy shit
-    instance->clear();
-    instance->shrink_to_fit();
-    delete instance;
+    instance.clear();
+    instance.shrink_to_fit();
+    //delete instance;
 
     delete buildStrategy;
     delete goThroughStrategy;

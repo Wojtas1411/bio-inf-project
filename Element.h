@@ -30,7 +30,7 @@ public:
 
     std::string getValue();
     int getSize();
-    virtual std::vector<SimpleElement> getParts();
+    virtual std::vector<SimpleElement> * getParts();
 };
 
 /*
@@ -47,7 +47,7 @@ public:
 
     bool appendElement(Element e, unsigned int p); //append element on given size of common part,
 
-    std::vector<SimpleElement> getParts();
+    std::vector<SimpleElement> * getParts();
 
 };
 

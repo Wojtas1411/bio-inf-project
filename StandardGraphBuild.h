@@ -11,7 +11,7 @@
 
 class StandardGraphBuild : public AbstractGraphBuildStrategy {
 public:
-    std::vector<std::vector<int>> getListOfNeighbours(std::vector<Element> * elements);
+    std::vector<std::vector<int>> * getListOfNeighbours(std::vector<Element> & elements);
 };
 
 

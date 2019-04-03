@@ -17,10 +17,10 @@ protected:
     int numOfEdges = 0;
     unsigned int li = 0;
 public:
-    virtual std::vector<std::vector<int>> getListOfNeighbours(std::vector<Element> * elements)=0;
+    virtual std::vector<std::vector<int>> * getListOfNeighbours(std::vector<Element> & elements)=0;
 
-    std::queue<int> getPriorityQueue(){
-        return priorityQueue;
+    std::queue<int>* getPriorityQueue(){
+        return &priorityQueue;
     }
 
     int getNumOfEdges(){

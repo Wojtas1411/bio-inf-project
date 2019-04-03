@@ -4,7 +4,7 @@
 
 #include "StandardGraphBuild.h"
 
-std::vector<std::vector<int>> StandardGraphBuild::getListOfNeighbours(std::vector<Element> *elements) {
+std::vector<std::vector<int>> * StandardGraphBuild::getListOfNeighbours(std::vector<Element> &elements) {
     //TODO generate list of neighbours
     //TODO generate priority queue
     //TODO count edges
