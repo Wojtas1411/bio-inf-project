@@ -35,8 +35,9 @@ public:
 
     std::string getResult();
 
-    static std::string header_line;
-    static std::string delimiter;
+    //setting output csv header and delimiter
+    static const std::string delimiter;
+    static const std::string header_line;
 
     static const int NEGATIVE_ERROR = 0;
     static const int POSITIVE_ERROR = 1;

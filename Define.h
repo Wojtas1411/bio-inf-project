@@ -20,6 +20,7 @@
 #include <fstream>
 #include <queue>
 #include <unordered_map>
+#include <sstream>
 
 #include "Element.h"
 

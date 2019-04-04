@@ -5,12 +5,34 @@
 #include "solver.h"
 
 //setting output csv header and delimiter
-std::string solver::delimiter = ";";
-std::string solver::header_line = "id" + solver::delimiter + "\n";
+const std::string solver::delimiter = ";";
+const std::string solver::header_line =
+        "id" + solver::delimiter +
+        "filename" + solver::delimiter +
+        "time" + solver::delimiter +
+        "error type" + solver::delimiter +
+        "number of elements" + solver::delimiter +
+        "number of elements real" + solver::delimiter +
+        "error size" + solver::delimiter +
+        "used elements" + solver::delimiter +
+        "chain size" + solver::delimiter +
+        "required size" + "\n";
 
 std::string solver::getResult() {
     //TODO build csv string with output data
-    return this->filename;
+    std::stringstream ss = std::stringstream();
+    ss << this->id << solver::delimiter;
+    ss << this->filename << solver::delimiter;
+    ss << this->time << solver::delimiter;
+    ss << this->error_type << solver::delimiter;
+    ss << this->number_of_elements << solver::delimiter;
+    ss << this->number_of_elements_real << solver::delimiter;
+    ss << this->error_size << solver::delimiter;
+    ss << this->used_elements << solver::delimiter;
+    ss << this->chain_size << solver::delimiter;
+    ss << this->required_size << std::endl;
+
+    return ss.str();
 }
 
 void solver::solve() {
@@ -18,7 +40,7 @@ void solver::solve() {
 
     std::vector<Element> result = this->instance;
 
-    std::cout<<"Start"<<std::endl;
+    //std::cout<<"Start"<<std::endl;
 
     //start timer
     auto start = std::chrono::system_clock::now();
@@ -26,15 +48,15 @@ void solver::solve() {
     while(li > 0){
         this->buildStrategy->setLi(li);
         this->goThroughStrategy->setLi(li);
-        std::cout<<this->filename + "\t"<<li<<std::endl;
+        //std::cout<<this->filename + "\t"<<li<<std::endl;
 
         std::vector<std::vector<int>> * graph = buildStrategy->getListOfNeighbours(result);
-        std::cout<<"Number of edges:\t"<<this->buildStrategy->getNumOfEdges()<<std::endl;
+        //std::cout<<"Number of edges:\t"<<this->buildStrategy->getNumOfEdges()<<std::endl;
         if(this->buildStrategy->getNumOfEdges() == 0){
             li--;
         }
 
-        std::cout<<"Graph size:\t " << graph->size()<<std::endl;
+        //std::cout<<"Graph size:\t " << graph->size()<<std::endl;
         if(graph->size() == 1){
             break;
         }
@@ -47,10 +69,14 @@ void solver::solve() {
     //save time
     this->time = (double) std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()/1000;
 
+    //TODO sort or merge result
+
     //fill chain size
     this->chain_size = result[0].getValue().size();
     //fill used elements
     this->used_elements = result[0].getSize();
+
+    if(result.size() != 1) std::cout<<"Too big result"<<std::endl;
 }
 
 solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy) {

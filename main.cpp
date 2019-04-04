@@ -15,9 +15,9 @@ void solve(const char * filename, std::promise<std::string> *promise, int id){
 
     //TODO choose strategies
     auto *tsolver = new solver(id, filename, new HashGraphBuild(), new StandardGraphGoThrough());
-    std::cout<<"Solving"<<std::endl;
+    //std::cout<<"Solving"<<std::endl;
     tsolver->solve();
-    std::cout<<"Solving finished"<<std::endl;
+    //std::cout<<"Solving finished"<<std::endl;
     promise->set_value(tsolver->getResult());
 
     delete promise;
@@ -87,16 +87,22 @@ int main() {
 
     // save results -> to csv
 
-    //TODO open result file
+    //open result file
+    std::ofstream out;
+    out.open("result.csv");
 
-    //TODO csv header line
+    //csv header line
+    //std::cout<<solver::header_line;
+    out << solver::header_line;
 
     for(const auto & o : *output){
-        std::cout << o << std::endl;
-        //TODO save to file
+        //std::cout << o << std::endl;
+        //save to file
+        out<<o;
     }
 
-    //TODO close file
+    //close file
+    out.close();
 
     //--- deleting stuff ---//
     filenames->clear();

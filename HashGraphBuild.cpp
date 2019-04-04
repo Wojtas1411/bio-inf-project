@@ -55,7 +55,7 @@ std::vector<std::vector<int>> * HashGraphBuild::getListOfNeighbours(std::vector<
 //        numOfEdges += ii[a.getTail(this->li)].size(); //count edges
 //    }
 
-    std::cout<<"Graph finished"<<std::endl;
+    //std::cout<<"Graph finished"<<std::endl;
 
     return ln;
 }
