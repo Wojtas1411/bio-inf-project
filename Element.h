@@ -25,12 +25,24 @@ public:
     ~SimpleElement()  = default;
 
     int appendSize(SimpleElement se);       //get size of common part of nucleotides between this tail and next head
-    std::string getTail(unsigned int p);
-    std::string getHead(unsigned int p);
+    const std::string getTail(unsigned int p);
+    const std::string getHead(unsigned int p);
 
     std::string getValue();
     int getSize();
     virtual std::vector<SimpleElement> * getParts();
+
+    bool operator = (const SimpleElement e){
+        return this->size == e.size;
+    }
+
+    bool operator < (const SimpleElement e){
+        return this->size < e.size;
+    }
+
+    bool operator > (const SimpleElement e){
+        return this->size > e.size;
+    }
 };
 
 /*
@@ -48,6 +60,11 @@ public:
     bool appendElement(Element e, unsigned int p); //append element on given size of common part,
 
     std::vector<SimpleElement> * getParts();
+
+    int calculateTotalLengthOfParts();
+
+//    std::string getTail(unsigned int p);
+//    std::string getHead(unsigned int p);
 
 };
 

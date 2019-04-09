@@ -35,6 +35,18 @@ std::string solver::getResult() {
     return ss.str();
 }
 
+unsigned long solver::indexOfMaxElement(std::vector<Element> &input) {
+    unsigned long max_index = 0;
+    unsigned long max_current = 0;
+    for(unsigned long  i=0; i<input.size(); i++){
+        if(input[i].getSize() > max_current){
+            max_current = input[i].getSize();
+            max_index = i;
+        }
+    }
+    return max_index;
+}
+
 void solver::solve() {
     int li = solver::L -1;
 
@@ -45,15 +57,24 @@ void solver::solve() {
     //start timer
     auto start = std::chrono::system_clock::now();
 
-    while(li > 0){
+    while(li >= 0){
         this->buildStrategy->setLi(li);
         this->goThroughStrategy->setLi(li);
         //std::cout<<this->filename + "\t"<<li<<std::endl;
+
+        //sort before each restart
+        //std::sort(result.begin(), result.end());
+
+        if(result[this->indexOfMaxElement(result)].getSize() >= this->number_of_elements) {
+            std::cout << "Solution limit reached" << std::endl;
+            break;
+        }
 
         std::vector<std::vector<int>> * graph = buildStrategy->getListOfNeighbours(result);
         //std::cout<<"Number of edges:\t"<<this->buildStrategy->getNumOfEdges()<<std::endl;
         if(this->buildStrategy->getNumOfEdges() == 0){
             li--;
+            continue;
         }
 
         //std::cout<<"Graph size:\t " << graph->size()<<std::endl;
@@ -62,6 +83,18 @@ void solver::solve() {
         }
 
         result = goThroughStrategy->goThrough(result, *graph, buildStrategy->getPriorityQueue());
+
+//        if(result.size() != 1) {
+//            std::cout << this->filename << "\tToo big result\t" << li << std::endl;
+//            for(auto & a : result){
+//                std::cout<<a.getSize()<<"\t"<<a.getParts()->size()<<"\t"<<a.getValue().size()<<"\t"<<a.calculateTotalLengthOfParts()<<"\t";
+//                std::cout<<a.getValue()<<"\t";
+//                for(auto & b : *a.getParts()){
+//                    std::cout<<b.getValue()<<"\t";
+//                }
+//                std::cout<<std::endl;
+//            }
+//        }
     }
 
     //end timer
@@ -70,13 +103,26 @@ void solver::solve() {
     this->time = (double) std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()/1000;
 
     //TODO sort or merge result
+    //std::sort(result.begin(), result.end());
+
+    unsigned long max_element = this->indexOfMaxElement(result);
 
     //fill chain size
-    this->chain_size = result[0].getValue().size();
+    this->chain_size = result[max_element].getValue().size();
     //fill used elements
-    this->used_elements = result[0].getSize();
+    this->used_elements = result[max_element].getSize();
 
-    if(result.size() != 1) std::cout<<"Too big result"<<std::endl;
+//    if(result.size() != 1) {
+//        std::cout << this->filename << "\tToo big result" << std::endl;
+//        for(auto & a : result){
+//            std::cout<<a.getSize()<<"\t"<<a.getParts()->size()<<"\t"<<a.getValue().size()<<"\t"<<a.calculateTotalLengthOfParts()<<"\t";
+//            std::cout<<a.getValue()<<"\t";
+//            for(auto & b : *a.getParts()){
+//                std::cout<<b.getValue()<<"\t";
+//            }
+//            std::cout<<std::endl;
+//        }
+//    }
 }
 
 solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy) {

@@ -27,6 +27,8 @@ private:
     long chain_size;        //total length of chain
     long used_elements;     //number of used input elements
 
+    unsigned long indexOfMaxElement(std::vector<Element> & input);
+
 public:
     solver(int id, const char * filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy);
     ~solver();

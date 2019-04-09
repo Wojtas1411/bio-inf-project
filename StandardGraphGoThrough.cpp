@@ -30,9 +30,9 @@ Element StandardGraphGoThrough::onePathTrip(int start_index, bool* visited, std:
             long max_value = -1;
             for(unsigned long i=0; i<neighbourList[current_index].size(); i++){
                 if(!visited[neighbourList[current_index][i]]){
-                    if(elements[visited[neighbourList[current_index][i]]].getSize() > max_value){
+                    if(elements[neighbourList[current_index][i]].getSize() > max_value){
                         max_index = i;
-                        max_value = elements[visited[neighbourList[current_index][i]]].getSize(); //get value of this element
+                        max_value = elements[neighbourList[current_index][i]].getSize(); //get value of this element
                     }
                 }
             }
