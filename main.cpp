@@ -6,7 +6,6 @@
 #include "Define.h"
 #include "solver.h"
 #include "HashGraphBuild.h"
-#include "StandardGraphBuild.h"
 #include "StandardGraphGoThrough.h"
 
 //g++ -std=c++17 -Wall main.cpp -o ./cmake-build-debug/test -lstdc++fs --compile with gcc :)))
@@ -24,63 +23,7 @@ void solve(const char * filename, std::promise<std::string> *promise, int id){
     delete tsolver;
 }
 
-void dummyTests(){
-    Element e = Element("CTTAGCTA");
-    std::cout << e.getValue() << std::endl;
-    std::cout << e.getHead(3) << std::endl;
-    std::cout << e.getHead(4) << std::endl;
-    std::cout << e.getHead(5) << std::endl;
-    std::cout << e.getHead(10) << std::endl;
-    std::cout << e.getTail(3) << std::endl;
-    std::cout << e.getTail(4) << std::endl;
-    std::cout << e.getTail(5) << std::endl;
-    std::cout << e.getTail(10) << std::endl;
-    Element f = Element("TTAGCTAG");
-    std::cout << e.appendSize(f) << std::endl;
-    std::cout << e.getTail(7) << std::endl;
-    std::cout << f.getHead(7) << std::endl;
-    e.appendElement(f,7);
-
-    std::cout << e.getValue() << std::endl;
-    std::cout << e.getSize() << std::endl;
-    std::cout << e.getParts()->size() <<std::endl;
-    std::cout << e.getValue().size() <<std::endl;
-    std::cout << e.calculateTotalLengthOfParts() << std::endl;
-    Element g = Element("AGCCC");
-    e.appendElement(g,2);
-    std::cout << e.getValue() << std::endl;
-    std::cout << e.getSize() << std::endl;
-    std::cout << e.getParts()->size() <<std::endl;
-    std::cout << e.getValue().size() <<std::endl;
-    std::cout << e.calculateTotalLengthOfParts() << std::endl;
-    Element h = Element("CCCCGAT");
-    Element i = Element("CGATAAA");
-    h.appendElement(i,4);
-    e.appendElement(h,3);
-    std::cout << e.getValue() << std::endl;
-    std::cout << e.getSize() << std::endl;
-    std::cout << e.getParts()->size() <<std::endl;
-    std::cout << e.getValue().size() <<std::endl;
-    std::cout << e.calculateTotalLengthOfParts() << std::endl;
-    std::cout << "---" <<std::endl;
-    std::cout << f.getValue() << std::endl;
-    std::cout << f.getSize() <<std::endl;
-    std::cout << f.calculateTotalLengthOfParts() << std::endl;
-    std::cout << g.getValue() << std::endl;
-    std::cout << g.getSize() <<std::endl;
-    std::cout << g.calculateTotalLengthOfParts() << std::endl;
-    std::cout << h.getValue() << std::endl;
-    std::cout << h.getSize() <<std::endl;
-    std::cout << h.calculateTotalLengthOfParts() << std::endl;
-    std::cout << i.getValue() << std::endl;
-    std::cout << i.getSize() <<std::endl;
-    std::cout << i.calculateTotalLengthOfParts() << std::endl;
-
-}
-
 int main() {
-    //dummyTests();
-
     std::string input_path = "../instances";
 
     // vector of filenames
@@ -103,7 +46,7 @@ int main() {
     //iterator for thread dispatch
     size_t iter = 0;
 
-    //debug - sequential
+    //sequential
     for(const auto & a : *filenames){
         auto *promise = new std::promise<std::string>();
         futures[iter] = promise->get_future();
@@ -112,7 +55,7 @@ int main() {
 
         iter++;
     }
-
+//    debug output single
 //    auto *promise = new std::promise<std::string>();
 //    futures[iter] = promise->get_future();
 //    solve(filenames->at(0).c_str(), promise, iter);

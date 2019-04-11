@@ -26,6 +26,22 @@ Element StandardGraphGoThrough::onePathTrip(int start_index, bool* visited, std:
                 //std::cout<<"First iteration break"<<std::endl;
                 break;
             }
+            //---if any child has more than one descendant---///
+//            if(go_with_stopping){
+//                bool should_i_break = false;
+//                for(unsigned long i=0; i<neighbourList[current_index].size(); i++){
+//                    if(neighbourList[i].size()>1) {
+//                        should_i_break = true;
+//                        break;
+//                    }
+//                }
+//                if(should_i_break) {
+//                    //std::cout<<"Tactic break"<<std::endl;
+//                    break;
+//                }
+//            }
+
+            //---choose longest, not visited descendant of the vertex---//
             long max_index = -1;
             long max_value = -1;
             for(unsigned long i=0; i<neighbourList[current_index].size(); i++){
@@ -42,7 +58,7 @@ Element StandardGraphGoThrough::onePathTrip(int start_index, bool* visited, std:
                 visited[current_index] = true; //make it visited
             } else {
                 //std::cout<<"all visited break"<<std::endl;
-                break; //none of descendants of this vertice has
+                break; //none of descendants of vertex is available
             }
         } else {
             //std::cout<<"random break"<<std::endl;
@@ -58,9 +74,19 @@ Element StandardGraphGoThrough::onePathTrip(int start_index, bool* visited, std:
 
 std::vector<Element> StandardGraphGoThrough::goThrough(std::vector<Element> &element,
                                                        std::vector<std::vector<int>> &neighbourList,
-                                                       std::queue<int> *priorityQueue) {
-    //TODO go through
+                                                       std::queue<int> *priorityQueue,
+                                                       std::queue<int> *secondPriorityQueue) {
     unsigned long size = element.size();
+
+    if(old_graph_size == neighbourList.size()) {
+        //std::cout<<"No changes\t"<<this->li<<std::endl;
+        go_with_stopping = false;
+    } else {
+        go_with_stopping = true;
+    }
+    if(this->first_iteration) go_with_stopping = true;
+
+    old_graph_size = neighbourList.size();
 
     std::vector<Element> result = std::vector<Element>();
 
@@ -80,6 +106,22 @@ std::vector<Element> StandardGraphGoThrough::goThrough(std::vector<Element> &ele
         Element e = onePathTrip(current_index, visited, neighbourList, element);
 
         result.push_back(e);
+    }
+
+    if(this->first_iteration){
+        while(!secondPriorityQueue->empty()){
+            int current_index = secondPriorityQueue->front();
+            secondPriorityQueue->pop();
+            if(!visited[current_index]){
+                for(const auto & j: neighbourList[current_index]){
+                    if(!visited[j]){
+                        Element e = onePathTrip(current_index, visited, neighbourList, element);
+                        result.push_back(e);
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     //std::cout<<"Go rest polite"<<std::endl;
@@ -112,5 +154,6 @@ std::vector<Element> StandardGraphGoThrough::goThrough(std::vector<Element> &ele
     }
     //std::cout<<"result size\t"<<result.size()<<std::endl;
 
+    delete[] visited;
     return result;
 }

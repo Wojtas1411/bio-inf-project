@@ -22,6 +22,11 @@ void HashGraphBuild::generatePriorityQueue(std::vector<Element> &elements) {
 
 std::vector<std::vector<int>> * HashGraphBuild::getListOfNeighbours(std::vector<Element> &elements) {
 
+    this->priorityQueue = std::queue<int>();
+    this->siblingPriorityQueue = std::queue<int>();
+
+    std::unordered_set<int> siblings = std::unordered_set<int>();
+
     //std::cout<<"Start hash build"<<std::endl;
     this->generatePriorityQueue(elements);
     //std::cout<<"Queue finished"<<std::endl;
@@ -43,7 +48,10 @@ std::vector<std::vector<int>> * HashGraphBuild::getListOfNeighbours(std::vector<
         for(unsigned long j=0; j<temp.size(); j++){ //avoid situations where vertex points to itself
             if(temp[j] == i){
                 temp.erase(temp.begin()+j);
-                break;
+                continue;
+            }
+            if(temp.size()>1){
+                siblings.insert(temp[j]);
             }
         }
         ln->push_back(temp);
@@ -56,6 +64,12 @@ std::vector<std::vector<int>> * HashGraphBuild::getListOfNeighbours(std::vector<
 //    }
 
     //std::cout<<"Graph finished"<<std::endl;
+
+    //rewrite set to priority queue
+    for(const auto & a : siblings){
+        siblingPriorityQueue.push(a);
+    }
+    siblings.clear();
 
     return ln;
 }

@@ -18,10 +18,11 @@ private:
 
 protected:
     std::string value;                      //nucleotides in this element
-    int size;                               //number of parts;
 
 public:
-    explicit SimpleElement(std::string s);  //every single part in this element
+    int size;                               //number of parts;
+
+    SimpleElement(std::string s);  //every single part in this element
     ~SimpleElement()  = default;
 
     int appendSize(SimpleElement se);       //get size of common part of nucleotides between this tail and next head
@@ -32,17 +33,19 @@ public:
     int getSize();
     virtual std::vector<SimpleElement> * getParts();
 
-    bool operator = (const SimpleElement e){
-        return this->size == e.size;
-    }
+//    bool operator = (const SimpleElement e) const {
+//        return this->size == e.size;
+//    }
+//
+//    bool operator < (const SimpleElement e) const {
+//        return this->size < e.size;
+//    }
+//
+//    bool operator > (const SimpleElement e) const {
+//        return this->size > e.size;
+//    }
 
-    bool operator < (const SimpleElement e){
-        return this->size < e.size;
-    }
-
-    bool operator > (const SimpleElement e){
-        return this->size > e.size;
-    }
+    virtual std::string getValueFromParts();
 };
 
 /*
@@ -54,7 +57,7 @@ protected:
     std::vector<SimpleElement> parts;          //actual parts
 
 public:
-    explicit Element(std::string s);
+    Element(std::string s);
     ~Element();
 
     bool appendElement(Element e, unsigned int p); //append element on given size of common part,
@@ -62,6 +65,22 @@ public:
     std::vector<SimpleElement> * getParts();
 
     int calculateTotalLengthOfParts();
+
+    std::string getValueFromParts();
+
+    void trimToSize(unsigned long size);
+
+//    bool operator = (const Element e) const {
+//        return this->size == e.size;
+//    }
+//
+//    bool operator < (const Element e) const {
+//        return this->size < e.size;
+//    }
+//
+//    bool operator > (const Element e) const {
+//        return this->size > e.size;
+//    }
 
 //    std::string getTail(unsigned int p);
 //    std::string getHead(unsigned int p);

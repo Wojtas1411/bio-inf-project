@@ -27,8 +27,6 @@ private:
     long chain_size;        //total length of chain
     long used_elements;     //number of used input elements
 
-    unsigned long indexOfMaxElement(std::vector<Element> & input);
-
 public:
     solver(int id, const char * filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy);
     ~solver();
@@ -46,6 +44,11 @@ public:
     static const int UNDEFINED_ERROR = -1;
 
     static const int L = 10;
+
+    static const unsigned long treshold = 10;
+
+    static unsigned long indexOfMaxElement(std::vector<Element> & input);
+
 };
 
 

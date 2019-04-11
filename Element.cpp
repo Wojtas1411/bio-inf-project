@@ -23,18 +23,16 @@ std::vector<SimpleElement> * Element::getParts() {
 
 bool Element::appendElement(Element e, unsigned int p) {
     //try to append element e on p common nucleotides
-    //TODO fix append bug
     std::string s1 = this->getTail(p);
     std::string s2 = e.getHead(p);
     if(s1 == s2){
         //this->value += e.getTail((int)e.getValue().size()-p);
         this->value += e.getValue().substr(p,e.getValue().size()-p);
         this->size += e.getSize();
-        //this->parts.insert(this->parts.end(), e.getParts()->begin(), e.getParts()->end());
+        this->parts.insert(this->parts.end(), e.getParts()->begin(), e.getParts()->end());
 //        for(const auto & a : *e.getParts()){
 //            this->parts.push_back(a);
 //        }
-        //std::cout<<"connection"<<std::endl;
         return true;
     } else {
         return false;
@@ -78,12 +76,39 @@ int SimpleElement::appendSize(SimpleElement se) {
     return 0;
 }
 
+std::string SimpleElement::getValueFromParts() {
+    return this->value;
+}
+
 int Element::calculateTotalLengthOfParts() {
     int result = this->parts[0].getValue().size();
     for(unsigned long i=1; i<this->parts.size(); i++){
         result += (this->parts[i].getValue().size()-this->parts[i-1].appendSize(parts[i]));
     }
     return result;
+}
+
+std::string Element::getValueFromParts() {
+    Element begin = Element(parts[0].getValue());
+    for(unsigned long i=1; i<parts.size(); i++){
+        Element temp = Element(parts[i].getValue());
+        begin.appendElement(temp, begin.appendSize(temp));
+    }
+    return begin.getValue();
+}
+
+void Element::trimToSize(unsigned long size) {
+    while(this->size > size){
+        int l1 = this->parts[0].appendSize(this->parts[1]); //check connection from front
+        int l2 = this->parts[this->size-2].appendSize(this->parts[this->size-1]); //check connection from back
+        if(l1 < l2){
+            this->parts.erase(this->parts.begin(), this->parts.begin()+1); //remove first
+        } else if (l2 <= l1){
+            this->parts.erase(this->parts.end()-1, this->parts.end()); //remove last
+        }
+        this->value = this->getValueFromParts();
+        this->size--;
+    }
 }
 
 //std::string Element::getHead(unsigned int p) {

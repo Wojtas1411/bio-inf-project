@@ -21,6 +21,7 @@
 #include <queue>
 #include <unordered_map>
 #include <sstream>
+#include <unordered_set>
 
 #include "Element.h"
 

@@ -14,6 +14,7 @@
 class AbstractGraphBuildStrategy{
 protected:
     std::queue<int> priorityQueue = std::queue<int>();
+    std::queue<int> siblingPriorityQueue = std::queue<int>();
     int numOfEdges = 0;
     unsigned int li = 0;
 public:
@@ -23,6 +24,10 @@ public:
         return &priorityQueue;
     }
 
+    std::queue<int>* getSiblingPriorityQueue(){
+        return  &siblingPriorityQueue;
+    }
+
     int getNumOfEdges(){
         return numOfEdges;
     }
@@ -30,6 +35,8 @@ public:
     void setLi(unsigned int li){
         this->li = li;
     }
+
+    virtual ~AbstractGraphBuildStrategy() = default;
 };
 
 #endif //BIOINF_ABSTRACTGRAPHBUILDSTRATEGY_H

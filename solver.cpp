@@ -4,6 +4,16 @@
 
 #include "solver.h"
 
+bool operator < (const Element& element1, const Element& element2)
+{
+    return (element1.size < element2.size);
+}
+
+bool operator > (const Element& element1, const Element& element2)
+{
+    return (element1.size > element2.size);
+}
+
 //setting output csv header and delimiter
 const std::string solver::delimiter = ";";
 const std::string solver::header_line =
@@ -19,7 +29,6 @@ const std::string solver::header_line =
         "required size" + "\n";
 
 std::string solver::getResult() {
-    //TODO build csv string with output data
     std::stringstream ss = std::stringstream();
     ss << this->id << solver::delimiter;
     ss << this->filename << solver::delimiter;
@@ -52,12 +61,12 @@ void solver::solve() {
 
     std::vector<Element> result = this->instance;
 
-    //std::cout<<"Start"<<std::endl;
+    //std::cout<<this->id<<"\t"<<this->filename<<std::endl;
 
     //start timer
     auto start = std::chrono::system_clock::now();
 
-    while(li >= 0){
+    while(li > 3){
         this->buildStrategy->setLi(li);
         this->goThroughStrategy->setLi(li);
         //std::cout<<this->filename + "\t"<<li<<std::endl;
@@ -65,55 +74,32 @@ void solver::solve() {
         //sort before each restart
         //std::sort(result.begin(), result.end());
 
-        if(result[this->indexOfMaxElement(result)].getSize() >= this->number_of_elements) {
+        std::vector<std::vector<int>> * graph = buildStrategy->getListOfNeighbours(result);
+        //std::cout<<"Number of edges:\t"<<this->buildStrategy->getNumOfEdges()<<std::endl;
+        if(this->buildStrategy->getNumOfEdges() == 0){
+            li--;       //decrease li parameter
+            continue;   //continue
+        }
+
+        //std::cout<<"Graph size:\t " << graph->size()<<std::endl;
+        if(graph->size() == 1) break; //if there is single element in graph -> could be result size equals 1
+
+        result = goThroughStrategy->goThrough(result, *graph,
+                buildStrategy->getPriorityQueue(),
+                buildStrategy->getSiblingPriorityQueue());
+
+        unsigned long current_best = this->indexOfMaxElement(result);
+
+        //std::cout<<li<<"\t"<<result[current_best].getSize()<<"\t"<<result[current_best].getValue().size()<<std::endl;
+
+        if(result[current_best].getSize() >= this->number_of_elements) {
             std::cout << "Solution limit reached" << std::endl;
             break;
         }
 
-        std::vector<std::vector<int>> * graph = buildStrategy->getListOfNeighbours(result);
-        //std::cout<<"Number of edges:\t"<<this->buildStrategy->getNumOfEdges()<<std::endl;
-        if(this->buildStrategy->getNumOfEdges() == 0){
-            li--;
-            continue;
-        }
+            //debug output
 
-        //std::cout<<"Graph size:\t " << graph->size()<<std::endl;
-        if(graph->size() == 1){
-            break;
-        }
-
-        result = goThroughStrategy->goThrough(result, *graph, buildStrategy->getPriorityQueue());
-
-//        if(result.size() != 1) {
-//            std::cout << this->filename << "\tToo big result\t" << li << std::endl;
-//            for(auto & a : result){
-//                std::cout<<a.getSize()<<"\t"<<a.getParts()->size()<<"\t"<<a.getValue().size()<<"\t"<<a.calculateTotalLengthOfParts()<<"\t";
-//                std::cout<<a.getValue()<<"\t";
-//                for(auto & b : *a.getParts()){
-//                    std::cout<<b.getValue()<<"\t";
-//                }
-//                std::cout<<std::endl;
-//            }
-//        }
-    }
-
-    //end timer
-    auto end = std::chrono::system_clock::now();
-    //save time
-    this->time = (double) std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()/1000;
-
-    //TODO sort or merge result
-    //std::sort(result.begin(), result.end());
-
-    unsigned long max_element = this->indexOfMaxElement(result);
-
-    //fill chain size
-    this->chain_size = result[max_element].getValue().size();
-    //fill used elements
-    this->used_elements = result[max_element].getSize();
-
-//    if(result.size() != 1) {
-//        std::cout << this->filename << "\tToo big result" << std::endl;
+//        if(result.size() != 1) std::cout << this->filename << "\tToo big result\t" << li << std::endl;
 //        for(auto & a : result){
 //            std::cout<<a.getSize()<<"\t"<<a.getParts()->size()<<"\t"<<a.getValue().size()<<"\t"<<a.calculateTotalLengthOfParts()<<"\t";
 //            std::cout<<a.getValue()<<"\t";
@@ -122,7 +108,46 @@ void solver::solve() {
 //            }
 //            std::cout<<std::endl;
 //        }
+    }
+
+    std::sort(result.begin(), result.end(), std::greater<Element>());
+
+    //unsigned long max_element = this->indexOfMaxElement(result);
+
+    Element best_result = result[0];
+
+    //pack with best fit
+    if(best_result.getSize() < required_size){
+        for(unsigned long i = 1; i<result.size(); i++){
+            if(best_result.getValue().size() + result[i].getValue().size() - best_result.appendSize(result[i]) < required_size + treshold){
+                best_result.appendElement(result[i], best_result.appendSize(result[i]));
+            }
+        }
+    }
+
+    //end timer
+    auto end = std::chrono::system_clock::now();
+    //save time
+    this->time = (double) std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()/1000;
+
+    best_result.trimToSize(this->number_of_elements);
+
+    //fill chain size
+    this->chain_size = best_result.getValue().size();
+    //fill used elements
+    this->used_elements = best_result.getSize();
+
+    //debug output
+
+//    for(auto & a : result){
+//        std::cout<<a.getSize()<<"\t"<<a.getParts()->size()<<"\t"<<a.getValue().size()<<"\t"<<a.calculateTotalLengthOfParts()<<"\t";
+//        std::cout<<a.getValue()<<"\t";
+//        for(auto & b : *a.getParts()){
+//            std::cout<<b.getValue()<<"\t";
+//        }
+//        std::cout<<std::endl;
 //    }
+
 }
 
 solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBuildStrategy, AbstractGraphGoThroughStrategy *goThroughStrategy) {
@@ -183,7 +208,7 @@ solver::solver(int id, const char *filename, AbstractGraphBuildStrategy *graphBu
 }
 
 solver::~solver() {
-    //TODO destroy shit
+    //TODO destroy stuff
     instance.clear();
     instance.shrink_to_fit();
     //delete instance;
