@@ -45,7 +45,7 @@ public:
 
     static const int L = 10;
 
-    static const unsigned long treshold = 10;
+    static const unsigned long treshold = 20;
 
     static unsigned long indexOfMaxElement(std::vector<Element> & input);
 

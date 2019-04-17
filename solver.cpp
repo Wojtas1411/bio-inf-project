@@ -130,7 +130,7 @@ void solver::solve() {
     //save time
     this->time = (double) std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()/1000;
 
-    best_result.trimToSize(this->number_of_elements);
+    best_result.trimToSize(this->required_size);
 
     //fill chain size
     this->chain_size = best_result.getValue().size();

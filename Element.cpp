@@ -98,7 +98,7 @@ std::string Element::getValueFromParts() {
 }
 
 void Element::trimToSize(unsigned long size) {
-    while(this->size > size){
+    while(this->value.size() > size){
         int l1 = this->parts[0].appendSize(this->parts[1]); //check connection from front
         int l2 = this->parts[this->size-2].appendSize(this->parts[this->size-1]); //check connection from back
         if(l1 < l2){

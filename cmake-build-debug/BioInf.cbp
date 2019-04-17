@@ -95,10 +95,10 @@
 		<Unit filename="/home/wojtek/BioInf/Element.h">
 			<Option target="BioInf"/>
 		</Unit>
-		<Unit filename="/home/wojtek/BioInf/StandardGraphBuild.cpp">
+		<Unit filename="/home/wojtek/BioInf/HashGraphBuild.cpp">
 			<Option target="BioInf"/>
 		</Unit>
-		<Unit filename="/home/wojtek/BioInf/StandardGraphBuild.h">
+		<Unit filename="/home/wojtek/BioInf/HashGraphBuild.h">
 			<Option target="BioInf"/>
 		</Unit>
 		<Unit filename="/home/wojtek/BioInf/StandardGraphGoThrough.cpp">

@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/wojtek/BioInf/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -150,32 +150,32 @@ Element.cpp.s:
 	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/Element.cpp.s
 .PHONY : Element.cpp.s
 
-StandardGraphBuild.o: StandardGraphBuild.cpp.o
+HashGraphBuild.o: HashGraphBuild.cpp.o
 
-.PHONY : StandardGraphBuild.o
+.PHONY : HashGraphBuild.o
 
 # target to build an object file
-StandardGraphBuild.cpp.o:
-	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o
-.PHONY : StandardGraphBuild.cpp.o
+HashGraphBuild.cpp.o:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o
+.PHONY : HashGraphBuild.cpp.o
 
-StandardGraphBuild.i: StandardGraphBuild.cpp.i
+HashGraphBuild.i: HashGraphBuild.cpp.i
 
-.PHONY : StandardGraphBuild.i
+.PHONY : HashGraphBuild.i
 
 # target to preprocess a source file
-StandardGraphBuild.cpp.i:
-	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.i
-.PHONY : StandardGraphBuild.cpp.i
+HashGraphBuild.cpp.i:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/HashGraphBuild.cpp.i
+.PHONY : HashGraphBuild.cpp.i
 
-StandardGraphBuild.s: StandardGraphBuild.cpp.s
+HashGraphBuild.s: HashGraphBuild.cpp.s
 
-.PHONY : StandardGraphBuild.s
+.PHONY : HashGraphBuild.s
 
 # target to generate assembly for a file
-StandardGraphBuild.cpp.s:
-	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.s
-.PHONY : StandardGraphBuild.cpp.s
+HashGraphBuild.cpp.s:
+	$(MAKE) -f CMakeFiles/BioInf.dir/build.make CMakeFiles/BioInf.dir/HashGraphBuild.cpp.s
+.PHONY : HashGraphBuild.cpp.s
 
 StandardGraphGoThrough.o: StandardGraphGoThrough.cpp.o
 
@@ -270,9 +270,9 @@ help:
 	@echo "... Element.o"
 	@echo "... Element.i"
 	@echo "... Element.s"
-	@echo "... StandardGraphBuild.o"
-	@echo "... StandardGraphBuild.i"
-	@echo "... StandardGraphBuild.s"
+	@echo "... HashGraphBuild.o"
+	@echo "... HashGraphBuild.i"
+	@echo "... HashGraphBuild.s"
 	@echo "... StandardGraphGoThrough.o"
 	@echo "... StandardGraphGoThrough.i"
 	@echo "... StandardGraphGoThrough.s"

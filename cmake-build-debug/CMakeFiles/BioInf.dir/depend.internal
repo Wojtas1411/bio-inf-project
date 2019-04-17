@@ -5,11 +5,25 @@ CMakeFiles/BioInf.dir/Element.cpp.o
  /home/wojtek/BioInf/Define.h
  /home/wojtek/BioInf/Element.cpp
  /home/wojtek/BioInf/Element.h
+CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o
+ /home/wojtek/BioInf/AbstractGraphBuildStrategy.h
+ /home/wojtek/BioInf/Define.h
+ /home/wojtek/BioInf/Element.h
+ /home/wojtek/BioInf/HashGraphBuild.cpp
+ /home/wojtek/BioInf/HashGraphBuild.h
+CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o
+ /home/wojtek/BioInf/AbstractGraphGoThroughStrategy.h
+ /home/wojtek/BioInf/Define.h
+ /home/wojtek/BioInf/Element.h
+ /home/wojtek/BioInf/StandardGraphGoThrough.cpp
+ /home/wojtek/BioInf/StandardGraphGoThrough.h
 CMakeFiles/BioInf.dir/main.cpp.o
  /home/wojtek/BioInf/AbstractGraphBuildStrategy.h
  /home/wojtek/BioInf/AbstractGraphGoThroughStrategy.h
  /home/wojtek/BioInf/Define.h
  /home/wojtek/BioInf/Element.h
+ /home/wojtek/BioInf/HashGraphBuild.h
+ /home/wojtek/BioInf/StandardGraphGoThrough.h
  /home/wojtek/BioInf/main.cpp
  /home/wojtek/BioInf/solver.h
 CMakeFiles/BioInf.dir/solver.cpp.o

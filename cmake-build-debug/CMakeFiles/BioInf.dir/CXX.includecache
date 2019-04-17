@@ -29,6 +29,16 @@ fstream
 -
 queue
 -
+unordered_map
+-
+sstream
+-
+unordered_set
+-
+Element.h
+/home/wojtek/BioInf/Element.h
+
+/home/wojtek/BioInf/Element.cpp
 Element.h
 /home/wojtek/BioInf/Element.h
 

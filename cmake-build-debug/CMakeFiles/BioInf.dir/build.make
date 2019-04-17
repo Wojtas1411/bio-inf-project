@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/wojtek/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/191.6183.77/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -96,22 +96,9 @@ CMakeFiles/BioInf.dir/Element.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BioInf.dir/Element.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wojtek/BioInf/Element.cpp -o CMakeFiles/BioInf.dir/Element.cpp.s
 
-CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o: CMakeFiles/BioInf.dir/flags.make
-CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o: ../StandardGraphBuild.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wojtek/BioInf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o -c /home/wojtek/BioInf/StandardGraphBuild.cpp
-
-CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wojtek/BioInf/StandardGraphBuild.cpp > CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.i
-
-CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wojtek/BioInf/StandardGraphBuild.cpp -o CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.s
-
 CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o: CMakeFiles/BioInf.dir/flags.make
 CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o: ../StandardGraphGoThrough.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wojtek/BioInf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wojtek/BioInf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o -c /home/wojtek/BioInf/StandardGraphGoThrough.cpp
 
 CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.i: cmake_force
@@ -122,13 +109,26 @@ CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wojtek/BioInf/StandardGraphGoThrough.cpp -o CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.s
 
+CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o: CMakeFiles/BioInf.dir/flags.make
+CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o: ../HashGraphBuild.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wojtek/BioInf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o -c /home/wojtek/BioInf/HashGraphBuild.cpp
+
+CMakeFiles/BioInf.dir/HashGraphBuild.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BioInf.dir/HashGraphBuild.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wojtek/BioInf/HashGraphBuild.cpp > CMakeFiles/BioInf.dir/HashGraphBuild.cpp.i
+
+CMakeFiles/BioInf.dir/HashGraphBuild.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BioInf.dir/HashGraphBuild.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wojtek/BioInf/HashGraphBuild.cpp -o CMakeFiles/BioInf.dir/HashGraphBuild.cpp.s
+
 # Object files for target BioInf
 BioInf_OBJECTS = \
 "CMakeFiles/BioInf.dir/main.cpp.o" \
 "CMakeFiles/BioInf.dir/solver.cpp.o" \
 "CMakeFiles/BioInf.dir/Element.cpp.o" \
-"CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o" \
-"CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o"
+"CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o" \
+"CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o"
 
 # External object files for target BioInf
 BioInf_EXTERNAL_OBJECTS =
@@ -136,8 +136,8 @@ BioInf_EXTERNAL_OBJECTS =
 BioInf: CMakeFiles/BioInf.dir/main.cpp.o
 BioInf: CMakeFiles/BioInf.dir/solver.cpp.o
 BioInf: CMakeFiles/BioInf.dir/Element.cpp.o
-BioInf: CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o
 BioInf: CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o
+BioInf: CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o
 BioInf: CMakeFiles/BioInf.dir/build.make
 BioInf: CMakeFiles/BioInf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wojtek/BioInf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable BioInf"

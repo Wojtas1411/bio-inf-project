@@ -1,1 +1,1 @@
-/usr/bin/c++   -Wall -pthread -g   CMakeFiles/BioInf.dir/main.cpp.o CMakeFiles/BioInf.dir/solver.cpp.o CMakeFiles/BioInf.dir/Element.cpp.o CMakeFiles/BioInf.dir/StandardGraphBuild.cpp.o CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o  -o BioInf -lstdc++fs 
+/usr/bin/c++   -Wall -pthread -g   CMakeFiles/BioInf.dir/main.cpp.o CMakeFiles/BioInf.dir/solver.cpp.o CMakeFiles/BioInf.dir/Element.cpp.o CMakeFiles/BioInf.dir/StandardGraphGoThrough.cpp.o CMakeFiles/BioInf.dir/HashGraphBuild.cpp.o  -o BioInf -lstdc++fs 
